@@ -1,0 +1,35 @@
+version: 2.1
+
+executors:
+  linux:
+    docker:
+      - image: cimg/base:2022.10
+  macos:
+    macos:
+      xcode: 14.1.0
+
+orbs:
+  node: circleci/node@5.0.3
+
+jobs:
+  test:
+    parameters:
+      os:
+        type: executor
+      node-version:
+        type: string
+    executor: << parameters.os >>
+    steps:
+      - checkout
+      - node/install:
+          node-version: << parameters.node-version >>
+          install-yarn: true
+      - run:
+          command: echo "running matrix job for << parameters.os >> << parameters.node-version >>"
+
+workflows:
+  all-tests:
+    jobs:
+      - test:
+          matrix:
+            # Add below this line to setup matrix build

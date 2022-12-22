@@ -1,0 +1,37 @@
+ 2084  vim cmd/web/handlers_test.go 
+ 2085  go test -v -run="TestSignupUser" -count=1 ./cmd/web/
+ 2086  vim cmd/web/handlers_test.go 
+ 2087  go test -v -run="TestSignupUser" -count=1 ./cmd/web/
+ 2088  go test -v -run="TestSignupUser" ./cmd/web/
+ 2089  vim cmd/web/handlers_test.go 
+ 2090  vim cmd/web/handlers.go 
+ 2091  vim cmd/web/handlers_test.go 
+ 2092  go test -v -run="TestSignupUser" ./cmd/web/
+ 2093  vim cmd/web/handlers_test.go 
+ 2094  vim cmd/web/handlers.go 
+ 2095  go test -v -run="TestSignupUser" ./cmd/web/
+ 2096  go test -v -run="TestSignupUser" -count=1 ./cmd/web/
+ 2097  go clean -testcache
+ 2098  go test -v -run="TestSignupUser" ./cmd/web/
+ 2099  vim cmd/web/testutils_test.go 
+ 2100  vim cmd/web/handlers_test.go 
+ 2101  go test -v -run="TestSignupUser" ./cmd/web/
+ 2103  vim cmd/web/testutils_test.go 
+ 2104  vim cmd/web/handlers_test.go 
+ 2105  go test -v -run="TestSignupUser" ./cmd/web/
+ 2106  vim cmd/web/handlers_test.go 
+ 2107  vim cmd/web/testutils_test.go 
+ 2108  go test -v -run="TestSignupUser" ./cmd/web/
+ 2113  history grep go >testing_forms.txt
+ 2114  history |grep go >testing_forms.txt
+ 2123  touch pkg/models/mysql/testutils_test.go
+ 2124  vim pkg/models/mysql/testutils_test.go
+ 2125  touch pkg/models/mysql/users_test.go
+ 2127  vim pkg/models/mysql/users_test.go
+ 2128  go test -v ./pkg/models/mysql
+ 2131  go test -v ./pkg/models/mysql
+ 2133  go test -v ./pkg/models/mysql
+ 2135  go test -v ./pkg/models/mysql
+ 2137  go test -v -short ./...
+ 2138  go test -v  ./...
+ 2140  history |grep go >testing_integration.txt

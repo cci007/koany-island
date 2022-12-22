@@ -1,0 +1,37 @@
+version: 2.1
+
+setup: true
+
+
+orbs:
+  continuation: circleci/continuation@0.3.1  #unsure why i would ever use this
+  path-filtering: circleci/path-filtering@0.1.3
+
+
+jobs:
+  setup:
+    executor: continuation/default
+    steps:
+      # - checkout # checkout code
+      - continuation/continue:
+          configuration_path: 01_Hello_World/.circleci/config.yml
+      # - run: # run a command
+          # name: Generate config
+          # command: |
+          #   ./generate-config > generated_config.yml
+
+
+workflows:
+  setup:
+    jobs:
+      - setup
+  always-run:
+  # version: 2
+  # 08_branch_filters:
+    jobs:
+      - path-filtering/filter:
+          name: check-updated-files
+          mapping: |
+            01_Hello_World/.* run-01_Hello_World-job true
+          base-revision: main
+          config-path: .circleci/continue_config.yml

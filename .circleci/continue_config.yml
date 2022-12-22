@@ -1,0 +1,25 @@
+version: 2.1
+
+# the default pipeline parameters, which will be updated according to
+# the results of the path-filtering orb
+parameters:
+  run-01_Hello_World-job:
+    type: boolean
+    default: false
+
+jobs:
+  build:
+    docker: # use the docker executor type; machine and macos executors are also supported
+      - image: cimg/base:2022.10 # the primary container, where your job's commands are run
+    steps:
+      - checkout # check out the code in the project directory
+      - run: echo "hello world" # run the `echo` command
+
+
+
+
+workflows:
+  01_Hello_World:
+    when: << pipeline.parameters.run-01_Hello_World-job >>
+    jobs:
+      - build
