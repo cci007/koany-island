@@ -15,19 +15,19 @@ workflows:
   worlflow-picker:
     jobs:
 
-      - path-filtering/filter:
-          base-revision: main
-          name: check-updated-files-01_Hello_World
-          mapping: |
-            01_Hello_World/.* run-01_Hello_World-job true
-          config-path: 01_Hello_World/.circleci/config.yml
+      # - path-filtering/filter:
+      #     base-revision: main
+      #     name: check-updated-files-01_Hello_World
+      #     mapping: |
+      #       01_Hello_World/.* run-01_Hello_World-job true
+      #     config-path: 01_Hello_World/.circleci/config.yml
 
-      - path-filtering/filter:
-          base-revision: main
-          name: check-updated-files-02_Yaml
-          mapping: |
-            02_Yaml/.* run-02_Yaml-job true
-          config-path: 02_Yaml/.circleci/config.yml
+      # - path-filtering/filter:
+      #     base-revision: main
+      #     name: check-updated-files-02_Yaml
+      #     mapping: |
+      #       02_Yaml/.* run-02_Yaml-job true
+      #     config-path: 02_Yaml/.circleci/config.yml
 
       # - path-filtering/filter:
       #     base-revision: main
@@ -50,12 +50,12 @@ workflows:
       #       05_Orbs/.* run-05_Orbs-job true
       #     config-path: 05_Orbs/.circleci/config.yml
 
-      # - path-filtering/filter:
-      #     base-revision: main
-      #     name: check-updated-files-06_Caching
-      #     mapping: |
-      #       06_Caching/.* run-06_Caching-job true
-      #     config-path: 06_Caching/.circleci/config.yml
+      - path-filtering/filter:
+          base-revision: main
+          name: check-updated-files-06_Caching
+          mapping: |
+            06_Caching/.* run-06_Caching-job true
+          config-path: 06_Caching/.circleci/config.yml
 
       # - path-filtering/filter:
       #     base-revision: main
