@@ -22,12 +22,12 @@ workflows:
             01_Hello_World/.* run-01_Hello_World-job true
           config-path: 01_Hello_World/.circleci/config.yml
 
-      # - path-filtering/filter:
-      #     base-revision: main
-      #     name: check-updated-files-02_Yaml
-      #     mapping: |
-      #       02_Yaml/.* run-02_Yaml-job true
-      #     config-path: 02_Yaml/.circleci/config.yml
+      - path-filtering/filter:
+          base-revision: main
+          name: check-updated-files-02_Yaml
+          mapping: |
+            02_Yaml/.* run-02_Yaml-job true
+          config-path: 02_Yaml/.circleci/config.yml
 
       # - path-filtering/filter:
       #     base-revision: main
