@@ -50,12 +50,12 @@ workflows:
       #       05_Orbs/.* run-05_Orbs-job true
       #     config-path: 05_Orbs/.circleci/config.yml
 
-      - path-filtering/filter:
-          base-revision: main
-          name: check-updated-files-06_Caching
-          mapping: |
-            06_Caching/.* run-06_Caching-job true
-          config-path: 06_Caching/.circleci/config.yml
+      # - path-filtering/filter:
+      #     base-revision: main
+      #     name: check-updated-files-06_Caching
+      #     mapping: |
+      #       06_Caching/.* run-06_Caching-job true
+      #     config-path: 06_Caching/.circleci/config.yml
 
       # - path-filtering/filter:
       #     base-revision: main
@@ -120,12 +120,12 @@ workflows:
       #       15_API_Trigger/.* run-15_API_Trigger-job true
       #     config-path: 15_API_Trigger/.circleci/config.yml
 
-      # - path-filtering/filter:
-      #     base-revision: main
-      #     name: check-updated-files-16_Reusable_config
-      #     mapping: |
-      #       16_Reusable_config/.* run-16_Reusable_config-job true
-      #     config-path: 16_Reusable_config/.circleci/config.yml
+      - path-filtering/filter:
+          base-revision: main
+          name: check-updated-files-16_Reusable_config
+          mapping: |
+            16_Reusable_config/.* run-16_Reusable_config-job true
+          config-path: 16_Reusable_config/.circleci/config.yml
 
       # - path-filtering/filter:
       #     base-revision: main
