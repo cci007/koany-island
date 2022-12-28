@@ -12,14 +12,14 @@ executors:
       - image: cimg/node:19.3.0
 
 commands:
-  generatelogs:
-    description: "A command to generate a log file"
-    parameters:
-      path:
-        type: string
-        default: "~/randomfolder"
-    steps:
-      - run: echo "Log file" > <<parameters.path>>/log.txt
+  # generatelogs:
+  #   description: "A command to generate a log file"
+  #   parameters:
+  #     path:
+  #       type: string
+  #       default: "~/randomfolder"
+  #   steps:
+  #     - run: echo "Log file" > <<parameters.path>>/log.txt
   endMission:
     description: "Use the parameters of this command to exit this mission with a green build."
     parameters:
@@ -34,15 +34,15 @@ jobs:
     executor: custom-node
     steps:
       - run: echo "console.log('complete')" | node
-      - generatelogs:
-          path: "~/project"
-      - run:
-          name: Check for logs - DO NOT MODIFY
-          command: |
-            if [ ! -f ~/project/log.txt ]; then
-              echo "The log should exist at ~/project/log.txt after running the 'generatelogs' command"
-              exit 1
-            fi
+      # - generatelogs:
+      #     path: "~/project"
+      # - run:
+      #     name: Check for logs - DO NOT MODIFY
+      #     command: |
+      #       if [ ! -f ~/project/log.txt ]; then
+      #         echo "The log should exist at ~/project/log.txt after running the 'generatelogs' command"
+      #         exit 1
+      #       fi
       - endMission:
           exitCode: 0
 
