@@ -1,5 +1,10 @@
 version: 2.1
 
+parameters:
+  run-10_Workflow_Fan_out-job:
+    type: boolean
+    default: false
+
 jobs:
   build:
     docker:
@@ -29,10 +34,21 @@ jobs:
         - run: echo "DEPLOYING" # Make sure all tests pass first!
 
 workflows:
-  build-test-and-deploy:
+  10_Workflow_Fan_out:
+    when: << pipeline.parameters.run-10_Workflow_Fan_out-job >>
     jobs:
       - build
-      - test-node
-      - test-node-16
-      - test-node-14
-      - deploy
+      - test-node:
+          requires:
+            - build
+      - test-node-16:
+          requires:
+            - build
+      - test-node-14:
+          requires:
+            - build
+      - deploy:
+          requires:
+            - test-node-14
+            - test-node
+            - test-node-16

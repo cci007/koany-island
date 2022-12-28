@@ -1,5 +1,10 @@
 version: 2.1
 
+parameters:
+  run-09_Tag_filters-job:
+    type: boolean
+    default: false
+
 jobs:
   build:
     docker:
@@ -21,12 +26,26 @@ jobs:
       - run: echo "Deploy complete"
 
 workflows:
-  build-test-and-deploy:
+  version: 2 #do i even need this?
+  09_Tag_filters:
+    when: << pipeline.parameters.run-09_Tag_filters-job >>
     jobs:
-      - build
+      - build:
+          filters:  # required since `deploy` has tag filters AND requires `build`
+            tags:
+              only: /^beta.*/
       - test:
           requires:
             - build
+          filters:  # required since `deploy` has tag filters AND requires `build`
+            tags:
+              only: /^beta.*/
       - deploy:
           requires:
             - test
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^beta.*/
+

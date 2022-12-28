@@ -1,9 +1,13 @@
 version: 2.1
 
 parameters:
+  run-15_API_Trigger-job:
+    type: boolean
+    default: false
   run_by_api:
     type: boolean
     default: false
+
 
 jobs:
   regular:
@@ -21,11 +25,17 @@ jobs:
       - run: echo "I was run by API"
 
 workflows:
-  normal:
+  15_API_Trigger:
+    when: << pipeline.parameters.run-15_API_Trigger-job >>
     jobs:
       - regular
 
-  api-workflow:
+  api-workflow: #FIX , dont know how to do this at all really
     when: << pipeline.parameters.run_by_api >> # Without modifying the config, run api-job
     jobs:
       - api-job
+
+
+
+
+# VS Code Extension Version: 1.5.0

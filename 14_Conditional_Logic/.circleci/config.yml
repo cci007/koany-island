@@ -1,6 +1,9 @@
 version: 2.1
 
 parameters:
+  run-14_Conditional_Logic-job:
+    type: boolean
+    default: false
   condition-workflow:
     type: boolean
     default: true
@@ -13,7 +16,7 @@ jobs:
       - checkout
       - when:
           condition:
-            # Add condition to execute this step when the github branch is equal to 'main'
+            # Add condition to execute this step when the github branch is equal to 'main' #FIX , dont know how to do
           steps:
             - run: echo "I am on main"
 
@@ -25,13 +28,18 @@ jobs:
       - run: echo "This ran on a pipeline parameter"
 
 workflows:
-  my-workflow:
+  14_Conditional_Logic:
+    when: << pipeline.parameters.run-14_Conditional_Logic-job >>
+      and: << pipeline.parameters.condition-workflow >>
     jobs:
       - my-job
-
-  conditional-workflow:
-    when:
-      and:
-        # Add condition to execute this workflow when condition-workflow is equal to true
-    jobs:
       - conditional-job
+
+  # conditional-workflow:
+  #   when:
+  #       # Add condition to execute this workflow when condition-workflow is equal to true
+  #   jobs:
+
+
+
+# VS Code Extension Version: 1.5.0

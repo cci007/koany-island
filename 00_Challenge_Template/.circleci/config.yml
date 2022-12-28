@@ -1,0 +1,13 @@
+
+parameters:
+  run-00_Challenge_Template-job:
+    type: boolean
+    default: false
+
+
+workflows:
+  00_Challenge_Template:
+    when: << pipeline.parameters.run-00_Challenge_Template-job >>
+    jobs:
+      - build
+

@@ -2,7 +2,9 @@
 
 **Description:**
 
-We have a `deploy` job in our Workflow. We have decided we only ever want to run our `deploy` job when we commit a tag that matches for our `beta` product. Your next beta release will be tag `beta-main-0.1.1`.
+We have a `deploy` job in our Workflow. 
+We have decided we only ever want to run our `deploy` job when we commit a tag that matches for our `beta` product. 
+Your next beta release will be tag `beta-main-0.1.1`.
 
 **Goals:**
 
@@ -16,5 +18,6 @@ We have a `deploy` job in our Workflow. We have decided we only ever want to run
   <summary>Spoiler warning</summary>
 
   * https://circleci.com/docs/2.0/workflows/
-  
+  #FIX documentation example does not work 
+  #The deploy job runs for no branches and only tags starting with ‘config-test
 </details>

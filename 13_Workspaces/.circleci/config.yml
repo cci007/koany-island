@@ -1,5 +1,10 @@
 version: 2.1
 
+parameters:
+  run-13_Workspaces-job:
+    type: boolean
+    default: false
+
 jobs:
   build-linux:
     docker:
@@ -12,8 +17,8 @@ jobs:
         - run: cd ~/project/app && pwd && ls
           # Edit below here
         - persist_to_workspace: 
-            root: 
-            paths:
+            root: ~/project/app
+            paths: linux
 
   build-windows:
     docker:
@@ -26,8 +31,8 @@ jobs:
         - run: cd ~/project/app && pwd && ls
           # Edit below here
         - persist_to_workspace: 
-            root: 
-            paths:
+            root: ~/project/app
+            paths: windows
 
   build-mac:
       docker:
@@ -40,21 +45,23 @@ jobs:
         - run: cd ~/project/app && pwd && ls
           # Edit below here
         - persist_to_workspace: 
-            root:
-            paths:
+            root: ~/project/app
+            paths: mac
 
   deploy:
       docker:
         - image: cimg/base:2022.10
       steps:
         - attach_workspace:
-            at: <location>
+            at: ~/project/appsss #this name feels arbitrary. #FIX ASK?
         - store_artifacts: # See circleci.com/docs/2.0/artifacts/ for more details.
-            path: app
+            path: appsss
             destination: apps
 
+
 workflows:
-  build_and_deploy:
+  13_Workspaces:
+    when: << pipeline.parameters.run-13_Workspaces-job >>
     jobs:
       - build-linux
       - build-mac
@@ -64,3 +71,5 @@ workflows:
             - build-linux
             - build-mac
             - build-windows
+
+

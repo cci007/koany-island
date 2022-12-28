@@ -42,5 +42,6 @@ Unarchiving cache...
   * https://circleci.com/docs/2.0/caching/
   * https://circleci.com/docs/2.0/yarn/#caching
   * https://circleci.com/docs/2.0/caching/#clearing-cache
+  #https://circleci.com/docs/caching/#clearing-cache  what is going on here? directions to clear cache say you cant. 
   
 </details>

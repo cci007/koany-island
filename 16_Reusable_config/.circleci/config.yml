@@ -1,5 +1,17 @@
 version: 2.1
 
+parameters:
+  run-16_Reusable_config-job:
+    type: boolean
+    default: false
+#FIX FIX FIX
+
+executors:
+  custom-node:
+    docker:
+      - image: cimg/node:19.3.0
+
+
 commands:
   generatelogs:
     description: "A command to generate a log file"
@@ -23,7 +35,8 @@ jobs:
     executor: custom-node
     steps:
       - run: echo "console.log('complete')" | node
-      - generatelogs
+      - generatelogs:
+          path: "~/project"
       - run:
           name: Check for logs - DO NOT MODIFY
           command: |
@@ -31,9 +44,12 @@ jobs:
               echo "The log should exist at ~/project/log.txt after running the 'generatelogs' command"
               exit 1
             fi
-      - endMission
+      - endMission:
+          exitCode: 0
 
 workflows:
-  build-workflow:
+  16_Reusable_config:
+    when: << pipeline.parameters.run-16_Reusable_config-job >>
     jobs:
       - build
+

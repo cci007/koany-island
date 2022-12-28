@@ -1,23 +1,36 @@
 version: 2.1
 
+parameters:
+  run-02_Yaml-job:
+    type: boolean
+    default: false
+
+
 jobs:
-  build:
-    docker: cimg/base:2022.10
+  Yaml:
+    docker: 
+      - image: cimg/base:2022.10 # the primary container, where your job's commands are run
     steps:
       - checkout
-      - run
-        name: "'run' statements can actually contain a 'name' and 'command' argument as well"
-        command: | 
-          echo "You can even have multiline commands."
+      - run:
+          name: "'run' statements can actually contain a 'name' and 'command' argument as well"
+          command: | 
+            echo "You can even have multiline commands."
       - restore_cache:
           keys:
           - v1-dependencies-
-      - run: mkdir ~/cache/
+      - run: if [[ ! -e ~/cache/ ]] ; then mkdir ~/cache/ ; fi
       - run: echo "testfile" > ~/cache/log.txt
       - save_cache:
           key: v1-dependencies-
           paths: ~/cache
 
+
+
+
 workflows:
-  build-workflow:
-    jobs: build
+  02_Yaml:
+    when: << pipeline.parameters.run-02_Yaml-job >>
+    jobs:
+      - Yaml
+

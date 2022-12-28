@@ -1,26 +1,35 @@
 version: 2.1
 
+parameters:
+  run-06_Caching-job:
+    type: boolean
+    default: false
+
 jobs:
-  build:
+  caching:
     docker:
       - image: cimg/node:12.16
     steps:
       - checkout
       # Uncomment below and set the key to point to the proper file
-      #- restore_cache:
-          #name: Restore Yarn Package Json Cache
-          #keys:            
+      - restore_cache:
+          name: Restore Yarn Package Json Cache
+          keys: yarn-packages-{{ checksum "06_Caching/yarn.lock" }}      
+          paths:
+            - ~/06_Caching/.cache/yarn
       - run:
           name: Install Dependencies
-          command: yarn install --immutable
+          command: cd 06_Caching/ && yarn install --immutable && pwd && ls
       # Uncomment below and set the key to point to the proper file
-      #- save_cache:
-          #name: Save Yarn Package Json Cache
-          #key: 
-          #paths:
-            #- ~/.cache/yarn
+      - save_cache:
+          name: Save Yarn Package Json Cache
+          key: yarn-packages-{{ checksum "06_Caching/yarn.lock" }}
+          paths:
+            - ~/06_Caching/.cache/yarn
 
 workflows:
-  cache-save-and-restore:
+  06_Caching:
+    when: << pipeline.parameters.run-06_Caching-job >>
     jobs:
-      - build
+      - caching
+

@@ -14,7 +14,9 @@ In this challenge, 3 applications will be created in a workflow. One for Linux, 
 <details>
   <summary>Spoiler warning</summary>
   
-  * https://circleci.com/docs/2.0/concepts/#workspaces-and-artifacts
+  *         - store_artifacts: # See circleci.com/docs/2.0/artifacts/ for more details.
+            path: app
+            destination: apps
   * https://circleci.com/blog/build-cicd-piplines-using-docker/
   
 </details>

@@ -16,6 +16,7 @@ Congrats, your tests have passed! Your test results were exported to `~/project/
   <summary>Spoiler warning</summary>
 
   * https://circleci.com/docs/collect-test-data/
+  #example store_test_reulsts and path: are wrong. needs indent line 7  #FIX
   * https://circleci.com/docs/artifacts/
   
 </details>

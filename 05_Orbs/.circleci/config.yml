@@ -1,20 +1,31 @@
 version: 2.1
 
+parameters:
+  run-05_Orbs-job:
+    type: boolean
+    default: false
+
 orbs:
-  # Add Orb here
+  ruby: circleci/ruby@2.0.0
 
 jobs:
-  build:
+  orbs:
     docker:
-      - image: cimg/base:2022.10
+      - image: cimg/base:2019.10 #does not work with 2022.10
     steps:
       - checkout
-      # Add step below to install Ruby version 2.6.3
-
-      
+      - ruby/install:
+          version: 2.6.3
+      # Add step below to install Ruby version 2.6.3      
       - run: ruby -v
 
+
+
+
 workflows:
-  run-jobs:
+  05_Orbs:
+    when: << pipeline.parameters.run-05_Orbs-job >>
     jobs:
-      - build
+      - orbs
+
+

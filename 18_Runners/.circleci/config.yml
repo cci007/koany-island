@@ -15,3 +15,15 @@ workflows:
     jobs:
       - machine-runner
       - container-runner
+parameters:
+  run-18_Runners-job:
+    type: boolean
+    default: false
+
+
+workflows:
+  18_Runners:
+    when: << pipeline.parameters.run-18_Runners-job >>
+    jobs:
+      - build
+

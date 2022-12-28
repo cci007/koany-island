@@ -1,0 +1,28 @@
+fan in and out ref: https://circleci.com/docs/workflows/
+
+https://circleci.com/docs/workflows/: missing server 4 tab. or is that 'cloud'
+workflow uses 'scheduled cron' workflow which we tell customers to not use.. 
+
+https://github.com/klaviyocandidate/koanBaby/tree/main/08%20Branch%20filters
+above, share link to green workflow. this goal does not have meaning
+inherent in the directions. 'share' as an action to CircleCI or share 
+as an act of the operator making changes?
+
+type-o: Ensure the deploy job only runs for the production branch.v
+
+
+best practices slide needs an update on 'how to enable' setup workflows
+for dynamic config. and mention 'why' you are doing it. 
+https://circleci.com/blog/building-cicd-pipelines-using-dynamic-config/
+>project> project to use> settings> advanced> toggle swith to run workflows
+
+
+image mentioned is  circleci/node should be cimg/node:12
+https://circleci.com/blog/building-cicd-pipelines-using-dynamic-config/
+
+
+read these three documents daily:
+https://circleci.com/docs/dynamic-config/#getting-started-with-dynamic-config-in-circleci
+https://circleci.com/docs/dynamic-config/
+https://circleci.com/docs/using-dynamic-configuration/
+

@@ -1,9 +1,15 @@
 version: 2.1
 
+parameters:
+  run-03_Databases-job:
+    type: boolean
+    default: false
+
 jobs:
-  build:
+  databases:
     docker:
       - image: cimg/base:2022.10
+      - image: cimg/postgres:14.0
     steps:
       - checkout # check out the code in the project directory
       - run: echo "hello world" # run the `echo` command
@@ -16,7 +22,10 @@ jobs:
           name: Wait for db # If no database is found in 1 minute the job will fail.
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
+
 workflows:
-  build-workflow:
+  03_Databases:
+    when: << pipeline.parameters.run-03_Databases-job >>
     jobs:
-      - build
+      - databases
+

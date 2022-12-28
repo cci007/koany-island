@@ -1,5 +1,10 @@
 version: 2.1
 
+parameters:
+  run-11_Workflow_Sequential-job:
+    type: boolean
+    default: false
+
 jobs:
   build:
     docker:
@@ -19,8 +24,20 @@ jobs:
         - run: echo "DEPLOYING" # Make sure tests pass first!
 
 workflows:
-  build-test-and-deploy:
+  11_Workflow_Sequential:
+    when: << pipeline.parameters.run-11_Workflow_Sequential-job >>
     jobs:
       - build
-      - test
-      - deploy
+      - test:
+          requires:
+            - build
+      - deploy:
+          requires:
+            - test
+
+
+
+
+
+
+# VS Code Extension Version: 1.5.0

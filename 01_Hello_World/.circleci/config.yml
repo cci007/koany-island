@@ -1,17 +1,21 @@
 version: 2.1
 
+parameters:
+  run-01_Hello_World-job:
+    type: boolean
+    default: false
+
+
 jobs:
-  build:
+  hello_world-build:
     docker: # use the docker executor type; machine and macos executors are also supported
       - image: cimg/base:2022.10 # the primary container, where your job's commands are run
     steps:
       - checkout # check out the code in the project directory
       - run: echo "hello world" # run the `echo` command
 
-
 workflows:
-  build-workflow:
+  01_Hello_world:
+    when: << pipeline.parameters.run-01_Hello_World-job >>
     jobs:
-      - build
-
-# VS Code Extension Version: 1.4.0
+      - hello_world-build

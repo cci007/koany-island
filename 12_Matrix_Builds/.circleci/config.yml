@@ -1,5 +1,10 @@
 version: 2.1
 
+parameters:
+  run-12_Matrix_Builds-job:
+    type: boolean
+    default: false
+
 executors:
   linux:
     docker:
@@ -28,8 +33,14 @@ jobs:
           command: echo "running matrix job for << parameters.os >> << parameters.node-version >>"
 
 workflows:
-  all-tests:
+  12_Matrix_Builds:
+    when: << pipeline.parameters.run-12_Matrix_Builds-job >>
     jobs:
       - test:
           matrix:
             # Add below this line to setup matrix build
+            parameters:
+              node-version: ["12.9.1","13.9.0","14.18.2","16.13.1"]
+              os: ["linux", "macos"]
+#12_Matrix_Builds/src/matrix.png
+

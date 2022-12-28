@@ -16,6 +16,7 @@ We want to run our job across multiple versions of Node and on both Mac and Linu
 <details>
   <summary>Spoiler warning</summary>
 
-  * https://circleci.com/docs/2.0/configuration-reference/#matrix-requires-version-21
+  * https://circleci.com/docs/2.0/configuration-reference/#matrix-requires-version-21 #broken
+  * https://circleci.com/docs/configuration-reference/#matrix  #FIX
 
 </details>
