@@ -1,0 +1,50 @@
+version: 2.1
+
+# the default pipeline parameters, which will be updated according to
+# the results of the path-filtering orb
+parameters:
+  run-01_Hello_World-job:
+    type: boolean
+    default: false
+  run-02_Yaml-job:
+    type: boolean
+    default: false
+
+jobs:
+  Hello_World:
+    docker: # use the docker executor type; machine and macos executors are also supported
+      - image: cimg/base:2022.10 # the primary container, where your job's commands are run
+    steps:
+      - checkout # check out the code in the project directory
+      - run: echo "hello world" # run the `echo` command
+  Yaml:
+    docker: 
+      - image: cimg/base:2022.10 # the primary container, where your job's commands are run
+    steps:
+      - checkout
+      - run: mkdir ~/cache/
+      # - run
+      #   name: "'run' statements can actually contain a 'name' and 'command' argument as well"
+      #   command: | 
+      #     echo "You can even have multiline commands."
+      # - restore_cache:
+      #     keys:
+      #     - v1-dependencies-
+      # - run: mkdir ~/cache/
+      # - run: echo "testfile" > ~/cache/log.txt
+      # - save_cache:
+      #     key: v1-dependencies-
+      #     paths: ~/cache
+
+
+
+
+workflows:
+  01_Hello_World:
+    when: << pipeline.parameters.run-01_Hello_World-job >>
+    jobs:
+      - Hello_World
+  02_Yaml:
+    when: << pipeline.parameters.run-02_Yaml-job >>
+    jobs:
+      - Yaml

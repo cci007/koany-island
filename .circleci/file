@@ -1,0 +1,126 @@
+      - path-filtering/filter:
+          base-revision: main
+          name: check-updated-files-01_Hello_World
+          mapping: |
+            02_Yaml/.* run-01_Hello_World-job true
+          config-path: 01_Hello_World/.circleci/config.yml
+
+      - path-filtering/filter:
+          base-revision: main
+          name: check-updated-files-02_Yaml
+          mapping: |
+            02_Yaml/.* run-02_Yaml-job true
+          config-path: 02_Yaml/.circleci/config.yml
+
+      - path-filtering/filter:
+          base-revision: main
+          name: check-updated-files-03_Databases
+          mapping: |
+            02_Yaml/.* run-03_Databases-job true
+          config-path: 03_Databases/.circleci/config.yml
+
+      - path-filtering/filter:
+          base-revision: main
+          name: check-updated-files-04_Parallelism
+          mapping: |
+            02_Yaml/.* run-04_Parallelism-job true
+          config-path: 04_Parallelism/.circleci/config.yml
+
+      - path-filtering/filter:
+          base-revision: main
+          name: check-updated-files-05_Orbs
+          mapping: |
+            02_Yaml/.* run-05_Orbs-job true
+          config-path: 05_Orbs/.circleci/config.yml
+
+      - path-filtering/filter:
+          base-revision: main
+          name: check-updated-files-06_Caching
+          mapping: |
+            02_Yaml/.* run-06_Caching-job true
+          config-path: 06_Caching/.circleci/config.yml
+
+      - path-filtering/filter:
+          base-revision: main
+          name: check-updated-files-07_Test_Summary
+          mapping: |
+            02_Yaml/.* run-07_Test_Summary-job true
+          config-path: 07_Test_Summary/.circleci/config.yml
+
+      - path-filtering/filter:
+          base-revision: main
+          name: check-updated-files-08_Branch_filters
+          mapping: |
+            02_Yaml/.* run-08_Branch_filters-job true
+          config-path: 08_Branch_filters/.circleci/config.yml
+
+      - path-filtering/filter:
+          base-revision: main
+          name: check-updated-files-09_Tag_filters
+          mapping: |
+            02_Yaml/.* run-09_Tag_filters-job true
+          config-path: 09_Tag_filters/.circleci/config.yml
+
+      - path-filtering/filter:
+          base-revision: main
+          name: check-updated-files-10_Workflow_Fan_out
+          mapping: |
+            02_Yaml/.* run-10_Workflow_Fan_out-job true
+          config-path: 10_Workflow_Fan_out/.circleci/config.yml
+
+      - path-filtering/filter:
+          base-revision: main
+          name: check-updated-files-11_Workflow_Sequential
+          mapping: |
+            02_Yaml/.* run-11_Workflow_Sequential-job true
+          config-path: 11_Workflow_Sequential/.circleci/config.yml
+
+      - path-filtering/filter:
+          base-revision: main
+          name: check-updated-files-12_Matrix_Builds
+          mapping: |
+            02_Yaml/.* run-12_Matrix_Builds-job true
+          config-path: 12_Matrix_Builds/.circleci/config.yml
+
+      - path-filtering/filter:
+          base-revision: main
+          name: check-updated-files-13_Workspaces
+          mapping: |
+            02_Yaml/.* run-13_Workspaces-job true
+          config-path: 13_Workspaces/.circleci/config.yml
+
+      - path-filtering/filter:
+          base-revision: main
+          name: check-updated-files-14_Conditional_Logic
+          mapping: |
+            02_Yaml/.* run-14_Conditional_Logic-job true
+          config-path: 14_Conditional_Logic/.circleci/config.yml
+
+      - path-filtering/filter:
+          base-revision: main
+          name: check-updated-files-15_API_Trigger
+          mapping: |
+            02_Yaml/.* run-15_API_Trigger-job true
+          config-path: 15_API_Trigger/.circleci/config.yml
+
+      - path-filtering/filter:
+          base-revision: main
+          name: check-updated-files-16_Reusable_config
+          mapping: |
+            02_Yaml/.* run-16_Reusable_config-job true
+          config-path: 16_Reusable_config/.circleci/config.yml
+
+      - path-filtering/filter:
+          base-revision: main
+          name: check-updated-files-17_Executors
+          mapping: |
+            02_Yaml/.* run-17_Executors-job true
+          config-path: 17_Executors/.circleci/config.yml
+
+      - path-filtering/filter:
+          base-revision: main
+          name: check-updated-files-18_Runners
+          mapping: |
+            02_Yaml/.* run-18_Runners-job true
+          config-path: 18_Runners/.circleci/config.yml
+
