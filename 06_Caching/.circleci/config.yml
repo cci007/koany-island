@@ -15,7 +15,7 @@ jobs:
       - restore_cache:
           name: Restore Yarn Package Json Cache
           keys: yarn-packages-v1-{{ checksum "06_Caching/package.json" }}      
-          keys: yarn-packages-v1-      
+          keys: yarn-packages-v1      
       - run:
           name: Install Dependencies
           command: cd 06_Caching/ && yarn install --immutable && pwd && ls
