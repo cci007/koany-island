@@ -15,12 +15,12 @@ workflows:
   worlflow-picker:
     jobs:
 
-      # - path-filtering/filter:
-      #     base-revision: main
-      #     name: check-updated-files-01_Hello_World
-      #     mapping: |
-      #       01_Hello_World/.* run-01_Hello_World-job true
-      #     config-path: 01_Hello_World/.circleci/config.yml
+      - path-filtering/filter:
+          base-revision: main
+          name: check-updated-files-01_Hello_World
+          mapping: |
+            01_Hello_World/.* run-01_Hello_World-job true
+          config-path: 01_Hello_World/.circleci/config.yml
 
       # - path-filtering/filter:
       #     base-revision: main
@@ -127,12 +127,12 @@ workflows:
       #       16_Reusable_config/.* run-16_Reusable_config-job true
       #     config-path: 16_Reusable_config/.circleci/config.yml
 
-      - path-filtering/filter:
-          base-revision: main
-          name: check-updated-files-17_Executors
-          mapping: |
-            17_Executors/.* run-17_Executors-job true
-          config-path: 17_Executors/.circleci/config.yml
+      # - path-filtering/filter:
+      #     base-revision: main
+      #     name: check-updated-files-17_Executors
+      #     mapping: |
+      #       17_Executors/.* run-17_Executors-job true
+      #     config-path: 17_Executors/.circleci/config.yml
 
       # - path-filtering/filter:
       #     base-revision: main
